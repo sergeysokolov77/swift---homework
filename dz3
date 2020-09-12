@@ -1,0 +1,14 @@
+var deposit:Double = 1000
+var percent:Double = 10
+percent = percent / 100
+var result1 = deposit + (deposit * percent)
+var result2 = result1 + (result1 * percent)
+var result3 = result2 + (result2 * percent)
+var result4 = result3 + (result3 * percent)
+var result5 = result4 + (result4 * percent)
+var counter = 1
+var time = [result1, result2,result3, result4, result5]
+for i in time{
+    print("Через \(counter) год/лет сумма вклада будет равна \(i)")
+    counter += 1
+}
