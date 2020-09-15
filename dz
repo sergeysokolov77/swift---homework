@@ -1,0 +1,36 @@
+import UIKit
+
+// 1. Написать функцию, которая определяет, четное число или нет.
+var digitals = [12, 56, 77, 98, 55, 43]
+for elements in digitals {
+    if elements % 2 == 0 {
+        print ("\(elements) четное число")
+        } else {
+        print ("\(elements) нечетное число")}
+    }
+
+// 2. Написать функцию, которая определяет, делится ли число без остатка на 3.
+ 
+var newDigitals = [ 5, 88, 97, 16, 24]
+for i in newDigitals {
+    if i % 3 != 0 {
+        print ("\(i) не делится ли число без остатка на 3")
+    } else {
+        print ("\(i) делится число без остатка на 3")
+        }
+}
+
+// 3. Создать возрастающий массив из 100 чисел.
+
+var testArray: [Int] = []
+    for i in 0...99 {
+    testArray.append(i)
+}
+
+// 4. Удалить из этого массива все четные числа и все числа, которые не делятся на 3.
+
+for value in testArray {
+    if (value % 2) != 0 && (value % 3 != 0) {
+        testArray.remove(at: testArray.firstIndex(of: value)!)
+    }
+}
