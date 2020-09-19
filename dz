@@ -1,0 +1,56 @@
+import UIKit
+
+enum EngineState {
+    case isOn, isOff
+}
+enum WindowState {
+    case open, close
+}
+enum TrunkState {
+    case load, unload
+}
+struct SportCar {
+    let model:String
+    let year: Int
+    var trunkVolume: Int
+    var fullTrunkVolume: Bool
+    var km: Double
+    var engine: EngineState
+    var windowState: WindowState
+    mutating func openWindow () {
+        self.windowState = .open}
+    mutating func closeWindow () {
+        self.windowState = .close}
+    func printDistance () {
+        print ("SportCar проехал \(km)")
+    }
+}
+
+struct TrunkCar {
+    let model: String
+    let year: Int
+    var trunkVolume: Int
+    var fullTrunkVolume: Bool
+    var km: Double
+    var engine : EngineState {
+            willSet {
+                if newValue == .isOff {
+                    print ("\(model) engine is on")
+                } else {print("\(model) engine is off")}
+            }
+    }
+    var windowState: WindowState
+}
+
+var car1 = SportCar(model:"Ferrari", year:2018, trunkVolume: 20, fullTrunkVolume: true, km: 12000.0,engine: .isOn, windowState: .open)
+var car2 = TrunkCar (model : "Kamaz", year: 2019, trunkVolume: 50, fullTrunkVolume: false, km: 60000,engine: .isOff, windowState: .open)
+
+
+car1.engine = .isOff
+car1.trunkVolume = 30
+car2.trunkVolume = 60
+car2.windowState = .close
+
+print(car1)
+car1.printDistance()
+print(car2)
