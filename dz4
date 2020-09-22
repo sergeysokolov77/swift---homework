@@ -1,0 +1,63 @@
+import UIKit
+
+ class Car {
+        var model:String
+        var year: Int
+        var km: Double
+        init(model: String,year:Int, km: Double) {
+            self.model = model
+            self.km = km
+            self.year = year
+        }
+        
+
+}
+    enum CarHatchState {
+            case open, close
+    }
+            
+    class SportCar: Car {
+        var hatchState: CarHatchState
+        init(model: String,year:Int,  km: Double,  hatchState: CarHatchState) {
+            self.hatchState = hatchState
+            super.init(model: model,year:year, km: km)
+        }
+        func openHatch() {
+                hatchState = .open
+            }
+        func closeHatch() {
+                hatchState = .close
+            }
+           }
+   
+
+        enum CarDoorState {
+            case open, close
+            }
+        
+    class TrunkCar: Car {
+        var DoorState : CarDoorState
+        init(model: String,year:Int,  km: Double,  DoorState : CarDoorState) {
+            self.DoorState = DoorState
+           super.init(model: model,year:year, km: km)
+        }
+       
+   
+    }
+
+
+
+var car1 = SportCar (model:"Ferrari", year:2018, km: 12000.0,hatchState:. open)
+car1.year = 2020
+car1.km = 30000
+
+
+var car2 = TrunkCar (model : "Kamaz", year: 2019,  km: 60000, DoorState: .open)
+
+car2.km = 30000
+car2.DoorState = .open
+
+print(car1.hatchState)
+
+print(car2.DoorState)
+
