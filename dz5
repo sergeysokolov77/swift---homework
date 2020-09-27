@@ -1,0 +1,43 @@
+import UIKit
+
+
+enum DoorState {
+    case open, close
+}
+enum HatchState {
+    case open, close
+}
+ protocol Car {
+    func action ()
+    var doorState : DoorState { get set }
+    var hatchState : HatchState { get set }
+ }
+extension Car {
+    
+    mutating func handleEngine() {
+        switch doorState {
+        case .close:
+            self.doorState = .close
+        default:
+            self.doorState = .open
+        }
+    }
+}
+class TrunkCar: Car {
+        var doorState : DoorState = .open
+    var hatchState : HatchState = .close
+    var weight = 1500
+    func action () {
+        print("\(weight)" + "heavy")
+    }
+    
+}
+class SportCar: Car {
+        var doorState : DoorState = .close
+    var hatchState : HatchState = .close
+    var wheels = 4
+    func action () {
+        print("\(wheels)" + "wheels")
+    }
+    
+}
